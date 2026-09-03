@@ -1,0 +1,22 @@
+services:
+  # PostgreSQL + pgvector
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: decimeet_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: decimeet
+    ports:
+      # 本机已有其他项目占用 5432/5433，DeciMeet 默认使用独立端口。
+      # 如需覆盖：$env:DECIMEET_POSTGRES_PORT="其他端口"
+      - "${DECIMEET_POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d decimeet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  postgres_data:

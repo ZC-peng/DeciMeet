@@ -1,0 +1,51 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Node dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+build/
+coverage/
+
+# Runtime uploads, logs and temporary files
+/backend/uploads/
+*.log
+*.tmp
+*.temp
+
+# Components excluded from the public repository
+/backend/seed_data.py
+/backend/app/services/_archived/
+/sfu/
+/.agents/
+/skills-lock.json
+
+# Private career materials (use these dedicated paths/names)
+/career-private/
+/docs/private/
+/JD分析报告.md
+/项目求职与面试文档.md
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
